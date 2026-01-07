@@ -1,5 +1,5 @@
 h, w = map(int, input().split())
-b = round(((10000 * w) / (h * h)), 1)
+b = ((10000 * w) / (h * h))
 
 print(int(b))
 
