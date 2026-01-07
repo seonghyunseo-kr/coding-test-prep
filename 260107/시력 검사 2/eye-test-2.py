@@ -1,6 +1,6 @@
 a = float(input())
 
-if a > 1:
+if a >= 1:
     print('High')
 elif a >= 0.5:
     print('Middle')
