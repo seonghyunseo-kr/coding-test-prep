@@ -1,12 +1,11 @@
 N = int(input())
 
-cnt = 1
-for i in range(1, N+1):
-    if N / i > 1:
-        N = N // i
-        cnt += 1
-        continue
-    else:
-        break
+cnt = 0
+divisor = 1  
+
+while N > 1:
+    N = N // divisor
+    cnt += 1
+    divisor += 1  
 
 print(cnt)
