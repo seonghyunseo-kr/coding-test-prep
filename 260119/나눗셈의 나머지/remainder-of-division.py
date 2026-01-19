@@ -6,7 +6,7 @@ while A >= 1:
     A = A // B 
     remainder.append(A % B) 
 
-remainder_cnt = [0] * len(remainder)
+remainder_cnt = [0] * B
 for x in remainder:
     remainder_cnt[x] += 1
 
