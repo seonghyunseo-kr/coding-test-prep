@@ -2,7 +2,7 @@ A, B = map(int, input().split())
 
 remainder = []
 
-while A > 1:
+while A >= 1:
     A = A // B 
     remainder.append(A % B) 
 
