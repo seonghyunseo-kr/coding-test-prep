@@ -1,11 +1,11 @@
 arr = list(map(int, input().split()))
-n = len(arr)
+cnt = [0] * 10
 
-cnt_arr = [0] * n 
-for elem in arr:
-    num = elem //  10 
-    cnt_arr[num] += 1
+for x in arr:
+    if x == 0:
+        break
+    tens = (x // 10) % 10
+    cnt[tens] += 1
 
-for i in range(1, n):
-    cnt = cnt_arr[i]
-    print(i, '-', cnt)
+for i in range(1, 10):
+    print(i, '-', cnt[i])
