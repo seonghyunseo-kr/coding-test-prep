@@ -3,8 +3,8 @@ A, B = map(int, input().split())
 remainder = []
 
 while A >= 1:
-    A = A // B 
     remainder.append(A % B) 
+    A = A // B 
 
 remainder_cnt = [0] * B
 for x in remainder:
