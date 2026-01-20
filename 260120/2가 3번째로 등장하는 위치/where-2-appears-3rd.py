@@ -1,12 +1,11 @@
 N = int(input())
 num = list(map(int, input().split()))
+cnt = 0
 
-cnt = 0 
-for n in num:
-
-    if n == 2:
+for i in range(N):
+    if num[i] == 2:
         cnt += 1
-
+    
     if cnt == 3:
-        print(num[n]+1)
+        print(i + 1)
         break
