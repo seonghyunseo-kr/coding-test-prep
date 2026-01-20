@@ -7,7 +7,7 @@ for i in range(N2+2):
     start = i 
     end = N2 + i
 
-    if end > N1:
+    if end >= N1:
         print("No")
         break
         
