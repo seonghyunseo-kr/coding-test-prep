@@ -15,6 +15,6 @@ for i in range(N1-N2+1):
         break
     else:
         no_cnt += 1
-        
-if no_cnt > (N2):
+
+if no_cnt >= N1-N2+1:
     print("No")
