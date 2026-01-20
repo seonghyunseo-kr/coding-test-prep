@@ -16,5 +16,5 @@ for i in range(N1-N2+1):
     else:
         no_cnt += 1
         
-if no_cnt >= (N2):
+if no_cnt > (N2):
     print("No")
