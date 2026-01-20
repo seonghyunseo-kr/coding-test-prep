@@ -3,7 +3,7 @@ A = list(map(int, input().split())) # len(A) == N1
 B = list(map(int, input().split())) # len(B) == N2
 
 cnt = 0
-for i in range(N2+1):
+for i in range(N2+2):
     start = i 
     end = N2 + i
     if end > N1:
