@@ -2,20 +2,27 @@ n = int(input())
 price = list(map(int, input().split()))
 
 # Please write your code here.
-curr_price = price[n-1]
-print('curr_price:', curr_price)
-min_price, max_price = 0, 0 
+buy_price = price[n-1]
+min_price, max_price = buy_price, buy_price
+curr_min, curr_max = buy_price, buy_price
+
 for p in price:
-    print('p:', p)
-    if p != curr_price:
-        if p < curr_price:
-            min_price = p
+    if p != buy_price:
+        if p < buy_price:
+            curr_min = p
         else:
-            max_price = p
-        print('curr_price, p, min_price, max_price:', curr_price, p, min_price, max_price)
+            curr_max = p 
 
+        if curr_min < min_price:
+            min_price = curr_min
+            
+        if curr_max > max_price:
+            max_price = curr_max 
+    else:
+        continue
 
-    # min_profit = curr_price - min_price
-    # max_profit = max_price - curr_price
-
-    # print(min_profit, max_profit)
+if buy_price > min_price:
+    min_profit = buy_price - min_price
+    print(min_profit)
+else:
+    print(0)
