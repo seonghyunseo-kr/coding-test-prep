@@ -1,6 +1,6 @@
 n = int(input())
 price = list(map(int, input().split()))
-profit, curr_max_profit, final_max_profit = 0, None, None
+profit, curr_max_profit = 0, 0
 
 # Please write your code here.
 for i in range(n-1):
@@ -15,7 +15,7 @@ for i in range(n-1):
             # print('no profit')
             profit = 0 
 
-        if curr_max_profit is None or profit > curr_max_profit:
+        if profit > curr_max_profit:
             curr_max_profit = profit
             # print('curr_max_profit updated', curr_max_profit)
 
