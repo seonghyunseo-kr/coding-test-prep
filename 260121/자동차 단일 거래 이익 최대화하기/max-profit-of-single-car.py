@@ -1,28 +1,22 @@
 n = int(input())
 price = list(map(int, input().split()))
+profit, curr_max_profit, final_max_profit = 0, None, None
 
 # Please write your code here.
-buy_price = price[n-1]
-min_price, max_price = buy_price, buy_price
-curr_min, curr_max = buy_price, buy_price
-
-for p in price:
-    if p != buy_price:
-        if p < buy_price:
-            curr_min = p
+for i in range(n-1):
+    curr_price = price[i]
+    future_prices = price[i+1:]
+    # print(curr_price, future_prices)
+    for p in future_prices:
+        if p > curr_price:
+            profit = p - curr_price
+            # print('yes profit', profit)
         else:
-            curr_max = p 
+            # print('no profit')
+            profit = 0 
 
-        if curr_min < min_price:
-            min_price = curr_min
-            
-        if curr_max > max_price:
-            max_price = curr_max 
-    else:
-        continue
+        if curr_max_profit is None or profit > curr_max_profit:
+            curr_max_profit = profit
+            # print('curr_max_profit updated', curr_max_profit)
 
-if buy_price > min_price:
-    min_profit = buy_price - min_price
-    print(min_profit)
-else:
-    print(0)
+print(curr_max_profit)
