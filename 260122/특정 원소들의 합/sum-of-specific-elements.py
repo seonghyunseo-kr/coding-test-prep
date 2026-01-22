@@ -1,8 +1,8 @@
 arr = [list(map(int, input().split())) for _ in range(4)]
-print(arr)
 sum_arr = 0
-for i in range(0, 4, 1):
-    for j in range(i):
-        sum_arr += arr[i][j]
-        print(i, j, arr[i][j], sum_arr)
+for i in range(4):
+    new_arr = arr[i]
+    for j in range(0, i+1):
+        sum_arr += new_arr[j]
+
 print(sum_arr)
