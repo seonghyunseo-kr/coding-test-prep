@@ -11,5 +11,7 @@ def date(M, D):
                 print('Yes')
             else:
                 print('No')
+    else:
+        print('No')
 
 date(M, D)
