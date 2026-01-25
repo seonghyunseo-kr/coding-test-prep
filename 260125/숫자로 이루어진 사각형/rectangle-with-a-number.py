@@ -8,7 +8,8 @@ def printer(n):
             if num < 10:
                 print(num, end=' ')
             else:
-                print(num - 9, end=' ')
+                num = 1
+                print(num, end=' ')
             num += 1
         print()
 
