@@ -1,19 +1,16 @@
 n = int(input())
 arr = list(map(int, input().split()))
 
-# Please write your code here.
-def program(n, arr):
-    if n == 0:
+def get_max(n, arr):
+    # 기저 조건: 원소가 하나뿐이라면 그 원소가 최댓값
+    if n == 1:
         return arr[0]
     
-    if arr[n-1] > arr[n-2]:
-        max_val = arr[n-1]
-        program(n-1, arr) 
+    prev_max = get_max(n - 1, arr)
+    
+    if arr[n - 1] > prev_max:
+        return arr[n - 1]
     else:
-        max_val = arr[n-2]
-        program(n-1, arr) 
-        
-    return max_val
+        return prev_max
 
-max_val = program(n-1, arr)
-print(max_val)
+print(get_max(n, arr))
