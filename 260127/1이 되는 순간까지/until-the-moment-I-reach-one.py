@@ -2,7 +2,7 @@ N = int(input())
 
 # Please write your code here.
 def program(N):
-    if N <= 2:
+    if N < 2:
         return 0
 
     if N % 2 == 0:
