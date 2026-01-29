@@ -10,21 +10,40 @@ for _ in range(n):
     weather.append(w)
 
 # Please write your code here.
+
 class WeatherInfo:
     def __init__(self, date, day, weather):
         self.date = date
         self.day = day
         self.weather = weather
-    def date_split(self):
-        y, m, d = self.date.split('-')
-        return int(y), int(m), int(d)
+        self.y, self.m, self.d = self.date.split('-')
+
         
 weather_list = []
 for i in range(n):
     weather_info = WeatherInfo(date[i], day[i], weather[i])
-    y, m, d = weather_info.date_split()
-    weather_list.append(weather_info, y, m, d)
+    weather_list.append(weather_info)
 
-min_date_y = weather_list[0]
+rainy_day = []
 for i in range(n):
-    print(weather_list[i])
+    if weather_list[i].weather == 'Rain':
+        rainy_day.append(weather_list[i])
+
+min_date_y = rainy_day[0].y
+min_date_m = rainy_day[0].m
+min_date_d = rainy_day[0].d
+min_date = rainy_day[0]
+
+for i in range(len(rainy_day)):
+    if min_date_y > rainy_day[i].y:
+        min_date = rainy_day[i].date
+    elif min_date_y == rainy_day[i].y:
+        if min_date_m > rainy_day[i].m:
+            min_date = rainy_day[i].date
+        elif min_date_m == rainy_day[i].m:
+            if min_date_d > rainy_day[i].d:
+                min_date = rainy_day[i].date
+    
+
+print(min_date.date, min_date.day, min_date.weather)
+    
