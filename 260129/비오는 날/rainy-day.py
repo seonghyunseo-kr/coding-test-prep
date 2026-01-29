@@ -10,7 +10,6 @@ for _ in range(n):
     weather.append(w)
 
 # Please write your code here.
-
 class WeatherInfo:
     def __init__(self, date, day, weather):
         self.date = date
@@ -34,16 +33,17 @@ min_date_m = rainy_day[0].m
 min_date_d = rainy_day[0].d
 min_date = rainy_day[0]
 
-for i in range(len(rainy_day)):
+for i in range(1, len(rainy_day)):
     if min_date_y > rainy_day[i].y:
-        min_date = rainy_day[i].date
+        min_date = rainy_day[i]
+        break
     elif min_date_y == rainy_day[i].y:
         if min_date_m > rainy_day[i].m:
-            min_date = rainy_day[i].date
+            min_date = rainy_day[i]
+            break
         elif min_date_m == rainy_day[i].m:
             if min_date_d > rainy_day[i].d:
-                min_date = rainy_day[i].date
+                min_date = rainy_day[i]
     
-
 print(min_date.date, min_date.day, min_date.weather)
     
