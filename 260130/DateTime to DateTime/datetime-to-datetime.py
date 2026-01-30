@@ -4,7 +4,13 @@ a, b, c = map(int, input().split())
 d, h, m = 11, 11, 11
 elasped_time = 0
 
-if a > d and b > h and c > m:
+if a < d:
+    print(-1)
+elif a == d and b < h:
+    print(-1)
+elif a == d and b == h and c < m:
+    print(-1)
+else:
     while True:
         if d == a and h == b and m == c:
             break
@@ -21,5 +27,3 @@ if a > d and b > h and c > m:
             h = 0
         
     print(elasped_time)
-else:
-    print(-1)
