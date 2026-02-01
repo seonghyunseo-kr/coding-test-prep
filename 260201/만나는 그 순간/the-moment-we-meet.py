@@ -1,52 +1,49 @@
 n, m = map(int, input().split())
 
-# Please write your code here.
-OFFSET = 10000
-MAX_R = OFFSET * 2 + 1
+MAX_T = 1000001
+a_blocks = [0] * MAX_T
+b_blocks = [0] * MAX_T
 
-a_blocks = [0] * MAX_R
-b_blocks = [0] * MAX_R
-
-start = 0
+curr_time = 0
 for _ in range(n):
     d, t = input().split()
     t = int(t)
 
-    if d == 'R':
-        end = t + start
-        for i in range(start, end):
-            a_blocks[i] = a_blocks[i-1] + 1
-        start = end
-    else:
-        end = t + start
-        for i in range(start, end):
-            a_blocks[i] = a_blocks[i-1] - 1
-        start = end
+    for _ in range(t):
+        curr_time += 1
+        if d == 'R':
+            a_blocks[curr_time] = a_blocks[curr_time - 1] + 1
+        else:
+            a_blocks[curr_time] = a_blocks[curr_time - 1] - 1
 
-start = 0
+total_time_a = curr_time
+
+
+curr_time = 0
 for _ in range(m):
     d, t = input().split()
     t = int(t)
-
-    if d == 'R':
-        end = t + start
-        for i in range(start, end):
-            b_blocks[i] = b_blocks[i-1] + 1
-        start = end
-    else:
-        end = t + start
-        for i in range(start, end):
-            b_blocks[i] = b_blocks[i-1] - 1
-        start = end
-
-
-ans = 0 
-for i in range(10000):
-    if a_blocks[i] != a_blocks[i-1] and b_blocks[i] != b_blocks[i-1]:
-        if a_blocks[i] == b_blocks[i] and a_blocks[i] != 0 and b_blocks[i] != 0:
-            ans = i + 1
-            break
+    for _ in range(t):
+        curr_time += 1
+        if d == 'R':
+            b_blocks[curr_time] = b_blocks[curr_time - 1] + 1
         else:
-            ans = -1
+            b_blocks[curr_time] = b_blocks[curr_time - 1] - 1
+
+total_time_b = curr_time
+
+total_time = max(total_time_a, total_time_b)
+
+for i in range(total_time_a + 1, total_time + 1):
+    a_blocks[i] = a_blocks[total_time_a]
+for i in range(total_time_b + 1, total_time + 1):
+    b_blocks[i] = b_blocks[total_time_b]
+
+
+ans = -1
+for i in range(1, total_time + 1):
+    if a_blocks[i] == b_blocks[i]:
+        ans = i
+        break
 
 print(ans)
