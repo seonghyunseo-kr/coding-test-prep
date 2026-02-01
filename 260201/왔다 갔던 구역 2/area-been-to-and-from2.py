@@ -1,6 +1,6 @@
 n = int(input())
 
-OFFSET = 10
+OFFSET = 100
 blocks = [0] * (OFFSET * 2 + 1)
 
 curr = OFFSET 
