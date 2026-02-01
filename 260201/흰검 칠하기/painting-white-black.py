@@ -1,5 +1,5 @@
 n = int(input())
-OFFSET = 101
+OFFSET = 1000
 blocks = [0] * (OFFSET * 2 + 1)
 
 b_cnt = [0] * (OFFSET * 2 + 1)
