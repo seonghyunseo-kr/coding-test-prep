@@ -35,4 +35,5 @@ if found:
     width = (max_x + 1) - min_x
     height = (max_y + 1) - min_y
     print(width * height)
-
+else:
+    print(0)
