@@ -1,7 +1,7 @@
 n, m = map(int, input().split())
 
 # Please write your code here.
-OFFSET = 1001
+OFFSET = 10000
 MAX_R = OFFSET * 2 + 1
 
 a_blocks = [0] * MAX_R
@@ -41,7 +41,7 @@ for _ in range(m):
 
 
 ans = 0 
-for i in range(1001):
+for i in range(10000):
     if a_blocks[i] != a_blocks[i-1] and b_blocks[i] != b_blocks[i-1]:
         if a_blocks[i] == b_blocks[i] and a_blocks[i] != 0 and b_blocks[i] != 0:
             ans = i + 1
