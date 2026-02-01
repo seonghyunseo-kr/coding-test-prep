@@ -1,5 +1,6 @@
 n = int(input())
-OFFSET = 10000
+
+OFFSET = 100000
 blocks = [0] * (OFFSET * 2 + 1)
 
 b_cnt = [0] * (OFFSET * 2 + 1)
@@ -41,4 +42,5 @@ for o in order:
         b += 1
     elif o == 'G':
         g += 1
+
 print(w, b, g)
