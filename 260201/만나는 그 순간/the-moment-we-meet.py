@@ -42,10 +42,11 @@ for _ in range(m):
 
 ans = 0 
 for i in range(1001):
-    if a_blocks[i] == b_blocks[i]:
-        ans = i + 1
-        break
-    else:
-        ans = -1
+    if a_blocks[i] != a_blocks[i-1] and b_blocks[i] != b_blocks[i-1]:
+        if a_blocks[i] == b_blocks[i] and a_blocks[i] != 0 and b_blocks[i] != 0:
+            ans = i + 1
+            break
+        else:
+            ans = -1
 
 print(ans)
