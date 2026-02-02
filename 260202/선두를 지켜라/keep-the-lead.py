@@ -26,7 +26,7 @@ for i in range(total_time):
         if leader == 2:
             ans += 1
         leader = 1
-    else:
+    elif b_blocks[i] > a_blocks[i]:
         if leader == 1:
             ans += 1
         leader = 2
