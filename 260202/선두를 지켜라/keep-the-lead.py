@@ -1,6 +1,6 @@
 n, m = map(int, input().split())
 
-OFFSET = 10001
+OFFSET = 1000001
 a_blocks = [0] * OFFSET 
 b_blocks = [0] * OFFSET 
 
