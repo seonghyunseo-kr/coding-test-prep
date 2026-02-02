@@ -1,46 +1,37 @@
 n, m = map(int, input().split())
 
-OFFSET = 1000001
-a_blocks = [0] * OFFSET 
-b_blocks = [0] * OFFSET 
+MAX_T = 1000001
+a_pos = [0] * MAX_T
+b_pos = [0] * MAX_T
 
-# Process A's movements
-curr_time = 0
+curr_time = 1
 for _ in range(n):
-    vi, ti = map(int, input().split())
-    dist = vi * ti 
-    for i in range(ti):
+    v, t = map(int, input().split())
+    for _ in range(t):
+        a_pos[curr_time] = a_pos[curr_time - 1] + v
         curr_time += 1
-        if a_blocks[curr_time] == a_blocks[curr_time-1]:
-            a_blocks[curr_time] = dist
-        else:
-            a_blocks[curr_time] = a_blocks[curr_time-1] + dist 
+total_time = curr_time
 
-total_time_a = curr_time
-    
-# Process B's movements
-curr_time = 0 
+
+curr_time = 1
 for _ in range(m):
-    vi, ti = map(int, input().split())
-    dist = vi * ti
-    for i in range(ti):
+    v, t = map(int, input().split())
+    for _ in range(t):
+        b_pos[curr_time] = b_pos[curr_time - 1] + v
         curr_time += 1
-        if b_blocks[curr_time] == b_blocks[curr_time-1]:
-            b_blocks[curr_time] = dist
-        else:
-            b_blocks[curr_time] = b_blocks[curr_time-1] + dist 
 
-total_time_b = curr_time
+# 선두 교체 횟수 계산
+leader = 0 # 1: A가 선두, 2: B가 선두, 0: 동점
+ans = 0
 
-total_time = max(total_time_a, total_time_b)
-for i in range(total_time_a + 1, total_time + 1):
-    a_blocks[i] = a_blocks[total_time_a]
-for i in range(total_time_b + 1, total_time + 1):
-    b_blocks[i] = b_blocks[total_time_b]
-
-ans = 0 
-for i in range(total_time):
-    if a_blocks[i] == b_blocks[i]:
-        ans += 1
+for i in range(1, total_time):
+    if a_pos[i] > b_pos[i]:
+        if leader == 2: # 이전에 B가 선두였다면 교체 발생
+            ans += 1
+        leader = 1
+    elif b_pos[i] > a_pos[i]:
+        if leader == 1: # 이전에 A가 선두였다면 교체 발생
+            ans += 1
+        leader = 2
 
 print(ans)
