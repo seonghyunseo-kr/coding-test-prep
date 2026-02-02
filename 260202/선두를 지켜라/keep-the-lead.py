@@ -1,6 +1,6 @@
 n, m = map(int, input().split())
 
-MAX_T = 100001
+MAX_T = 1000001
 a_blocks = [0] * MAX_T
 b_blocks = [0] * MAX_T
 
