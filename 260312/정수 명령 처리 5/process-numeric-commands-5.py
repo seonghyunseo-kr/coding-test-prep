@@ -15,7 +15,8 @@ for _ in range(N):
     elif line[0] == 'size':
         ans.append(len(num))
     elif line[0] == 'pop_back':
-        num.remove(num[-1])
+        if num: # 배열이 비어있지 않을 때만 pop
+            num.pop() # remove(num[-1]) 대신 pop() 사용
 
 # print answer 
 print(*ans, sep='\n', end='\n')
